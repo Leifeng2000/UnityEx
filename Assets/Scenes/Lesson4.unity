@@ -20664,11 +20664,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebd85355ce511b44b9d69b62ef8f48d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointA: {fileID: 1905290093}
-  pointB: {fileID: 929302522}
-  pointC: {fileID: 416259422}
-  pointD: {fileID: 1803597851}
+  mode: 0
   speed: 20
+  turnSpeed: 200
 --- !u!4 &2049912697
 Transform:
   m_ObjectHideFlags: 0

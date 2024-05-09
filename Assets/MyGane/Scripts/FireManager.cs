@@ -51,11 +51,11 @@ public class FireManager : MonoBehaviour
             Vector3 pos = Input.mousePosition;
             Debug.Log(pos.x + "+" + pos.y);
         }*/
-        if(Input.GetKey(KeyCode.Escape)) 
+        /*if(Input.GetKey(KeyCode.Escape)) 
         {
             //Debug.Log("Phim BackSpace duoc nhan");
         }
 
-        Debug.LogWarning("Ok");
+        Debug.LogWarning("Ok");*/
     }
 }

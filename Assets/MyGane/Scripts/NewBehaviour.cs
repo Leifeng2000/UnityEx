@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NewBehaviour : MonoBehaviour
 {
-    [HideInInspector]
+    /*[HideInInspector]
     public int valueTemp = 5;
     [SerializeField]
     private int privateValue = 10;
@@ -22,5 +22,5 @@ public class NewBehaviour : MonoBehaviour
     private void FixedUpdate()
     {
         
-    }
+    }*/
 }
