@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (speedAdjustment < 0f)
         {
-            if (speed > 0) //Stop when the speed reach 0.
+            if (speed > 0) //Stop when the speed reduced to 0.
             {
                 speed--;
             }
