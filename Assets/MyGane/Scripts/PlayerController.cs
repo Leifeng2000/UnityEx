@@ -1,9 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public float maxHealth = 100;
+    public float fuelValue = 20;
+    public float damageValue = 100;
+    public GameObject explosionPrefabs;
+
+    private float currentHealth = 0;
     public enum DriveMode
     {
         Manual,
@@ -13,6 +21,10 @@ public class PlayerController : MonoBehaviour
     public DriveMode mode = DriveMode.Manual;
     public float speed = 10f;
     public float turnSpeed = 200f;
+    private void Start()
+    {
+        currentHealth = maxHealth;
+    }
 
     private void Update()
     {
@@ -76,5 +88,35 @@ public class PlayerController : MonoBehaviour
     private void MoveBackward()
     {
         transform.Translate(-Vector3.forward * speed * Time.deltaTime);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag  == "Fuel")
+        {
+            Destroy(other.gameObject);
+            GameManager.Instance.SetFuel(fuelValue);
+            IntantiateGame(other);
+        }
+        else if(other.tag == "Damage")
+        {
+            DamageHealth(damageValue);
+            IntantiateGame(other);
+        }
+    }
+    void IntantiateGame(Collider other)
+    {
+        Instantiate(explosionPrefabs, other.transform.position, Quaternion.identity);
+    }
+    private void DamageHealth(float health)
+    {
+        if (currentHealth>0)
+        {
+            currentHealth -= health;
+        }
+        else
+        {
+            currentHealth = 0;
+            Destroy(gameObject);
+        }
     }
 }
